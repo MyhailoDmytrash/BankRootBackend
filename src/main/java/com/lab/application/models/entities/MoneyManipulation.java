@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Data
 @Table(name = "money_manipulation")
@@ -16,8 +17,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
-public class MoneyManipulation extends BaseEntity
-{
+public class MoneyManipulation extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -36,4 +36,7 @@ public class MoneyManipulation extends BaseEntity
     @Column(name = "color")
     @Enumerated(EnumType.STRING)
     private MoneyManipulationColorEnum color;
+
+    @ManyToMany(mappedBy = "manipulations", fetch = FetchType.LAZY)
+    private Set<Category> categories;
 }

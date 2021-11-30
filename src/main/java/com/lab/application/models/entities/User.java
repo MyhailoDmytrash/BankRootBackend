@@ -17,8 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
-public class User extends BaseEntity implements UserDetails
-{
+public class User extends BaseEntity implements UserDetails {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,9 +44,11 @@ public class User extends BaseEntity implements UserDetails
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<MoneyManipulation> moneyManipulations;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Category> categories;
+
     @Override
-    protected void doOnCreate()
-    {
+    protected void doOnCreate() {
         super.doOnCreate();
         moneyAmount = new BigDecimal(0);
     }
@@ -81,4 +82,5 @@ public class User extends BaseEntity implements UserDetails
     public boolean isEnabled() {
         return true;
     }
+
 }
