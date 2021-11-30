@@ -20,4 +20,6 @@ public interface UserService
     User addMoney(@NonNull Authentication authentication, @NonNull BigDecimal amount);
 
     User removeMoneyManipulation(@NonNull MoneyManipulation moneyManipulation);
+
+    UserDTO getMyData(@NonNull Authentication authentication);
 }
