@@ -88,6 +88,14 @@ public class UserServiceImpl implements UserService
         return userRepository.save(user);
     }
 
+    @Override
+    public UserDTO getMyData(Authentication authentication)
+    {
+        return userRepository.getUserByEmail(authentication.getName())
+                .map(userMapper::userToUserDTO)
+                .orElseThrow(() -> new UserServiceException(UserServiceException.WRONG_AUTHENTICATION_DATA));
+    }
+
     private User manipulateWithMoney(Authentication authentication, BigDecimal amount, MoneyManipulationTypeEnum moneyManipulationType)
     {
         return manipulateWithMoney(getUserByAuthentication(authentication), amount, moneyManipulationType);

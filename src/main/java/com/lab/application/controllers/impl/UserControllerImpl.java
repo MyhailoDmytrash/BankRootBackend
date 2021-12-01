@@ -5,6 +5,7 @@ import com.lab.application.models.dtos.UserDTO;
 import com.lab.application.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -28,4 +29,12 @@ public class UserControllerImpl implements UserController
     public Map<String, String> authentication(UserDTO userDTO) {
         return Map.of(JWTName, userService.authentication(userDTO));
     }
+
+    @Override
+    public UserDTO getMyData(Authentication authentication)
+    {
+        return userService.getMyData(authentication);
+    }
+
+
 }
