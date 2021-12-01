@@ -19,19 +19,16 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter
-{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final AuthenticationFilter authenticationFilter;
 
     @Bean
-    public PasswordEncoder passwordEncoder()
-    {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(8);
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception
-    {
+    protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         http.httpBasic();
@@ -42,7 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         http.cors();
 
         http.authorizeRequests()
+
+                .antMatchers("/user/registration/**", "/user/authentication/**").permitAll()
+                .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .antMatchers("/user/registration/**", "/user/authentication/**", "/currency/**").permitAll()
+
                 .anyRequest().authenticated();
     }
 
