@@ -28,7 +28,9 @@ dependencies {
 
     implementation 'org.springdoc:springdoc-openapi-security:1.5.12'
     implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
-    runtimeOnly 'org.postgresql:postgresql:42.3.1'
+    implementation 'org.springframework.security:spring-security-core:5.6.0'
+
+    //runtimeOnly 'org.postgresql:postgresql:42.3.1'
     implementation 'com.google.apis:google-api-services-calendar:v3-rev20211026-1.32.1'
     implementation 'org.hibernate:hibernate-entitymanager:6.0.0.Alpha7'
     implementation 'org.springframework:spring-webmvc:5.3.13'
