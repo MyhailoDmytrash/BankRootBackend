@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 @Data
-@Table(name = "money_manipulation")
+@Table(name = "money_manipulations")
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -37,6 +37,7 @@ public class MoneyManipulation extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MoneyManipulationColorEnum color;
 
-    @ManyToMany(mappedBy = "manipulations", fetch = FetchType.LAZY)
-    private Set<Category> categories;
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

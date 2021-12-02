@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Table(name = "Authority")
+@Table(name = "authorities")
 @Entity
 @ToString(of = {"authority"})
 @NoArgsConstructor

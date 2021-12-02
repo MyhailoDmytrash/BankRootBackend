@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Data
-@Table(name = "User")
+@Table(name = "users")
 @Entity
 @ToString(of = {"name", "surname", "email"})
 @NoArgsConstructor
