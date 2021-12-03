@@ -36,4 +36,7 @@ public class MoneyManipulation extends BaseEntity
     @Column(name = "color")
     @Enumerated(EnumType.STRING)
     private MoneyManipulationColorEnum color;
+
+    @Column(name = "description")
+    private String description;
 }

@@ -9,11 +9,11 @@ import java.util.List;
 @RequestMapping("/money")
 public interface MoneyManipulationController
 {
-    @PostMapping("/add/manipulation")
+    @PostMapping("/add")
     MoneyManipulationDTO addManipulation(@RequestBody MoneyManipulationDTO moneyManipulationDTO,
                                          Authentication authentication);
 
-    @DeleteMapping("/remove/manipulation/{manipulation_uuid}")
+    @PostMapping("/remove/manipulation/{manipulation_uuid}")
     void removeManipulation(@PathVariable("manipulation_uuid") String manipulationUUID, Authentication authentication);
 
     @GetMapping("/get/all/manipulations")
