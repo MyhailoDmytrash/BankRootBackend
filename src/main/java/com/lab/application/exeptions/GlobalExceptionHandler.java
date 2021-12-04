@@ -13,6 +13,7 @@ import javax.xml.bind.ValidationException;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler
 {
+    // Test
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<String> handleAllException(Exception exception)
     {
