@@ -36,7 +36,10 @@ public class MoneyManipulation extends BaseEntity {
     @Column(name = "color")
     @Enumerated(EnumType.STRING)
     private MoneyManipulationColorEnum color;
+<<<<<<< HEAD
 
     @ManyToMany(mappedBy = "manipulations", fetch = FetchType.LAZY)
     private Set<Category> categories;
+=======
+>>>>>>> parent of 7a6d432 (Uppdate)
 }
